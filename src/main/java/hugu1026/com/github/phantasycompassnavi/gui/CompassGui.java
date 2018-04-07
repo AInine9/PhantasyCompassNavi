@@ -7,15 +7,15 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
-public class DestinationGui extends Gui {
+public class CompassGui extends Gui {
 
     private LinkedHashSet<ItemStack> icons = new LinkedHashSet<>();
 
-    public DestinationGui(Player player) {
+    public CompassGui(Player player) {
         HashSet<String> destinationList = DestinationUtil.getNameList();
 
         destinationList.forEach(name -> {
-            if (player.hasPermission("destination.go." + name)) {
+            if (player.hasPermission("destination.compass." + name)) {
                 this.icons.add(DestinationUtil.getItemStack(name));
             }
         });

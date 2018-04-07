@@ -1,6 +1,6 @@
 package hugu1026.com.github.phantasycompassnavi.listener;
 
-import hugu1026.com.github.phantasycompassnavi.gui.DestinationGui;
+import hugu1026.com.github.phantasycompassnavi.gui.CompassGui;
 import hugu1026.com.github.phantasycompassnavi.util.DestinationUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -18,7 +18,7 @@ public class InventoryClick implements Listener {
         Inventory inventory = event.getInventory();
         if (inventory == null) return;
 
-        if (!(inventory.getHolder() instanceof DestinationGui)) return;
+        if (!(inventory.getHolder() instanceof CompassGui)) return;
 
         if (!(event.getWhoClicked() instanceof Player)) return;
 

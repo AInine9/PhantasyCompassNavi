@@ -1,6 +1,6 @@
 package hugu1026.com.github.phantasycompassnavi.listener;
 
-import hugu1026.com.github.phantasycompassnavi.gui.DestinationGui;
+import hugu1026.com.github.phantasycompassnavi.gui.CompassGui;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,7 +25,7 @@ public class PlayerInteract implements Listener {
                 return;
 
             if (player.getInventory().getItemInMainHand().getItemMeta().getDisplayName().contains("ナビゲーター")) {
-                DestinationGui gui = new DestinationGui(player);
+                CompassGui gui = new CompassGui(player);
                 gui.openInventory(player);
             }
         }
