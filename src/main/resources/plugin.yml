@@ -1,3 +1,6 @@
 name: PhantasyCompassNavi
 version: ${project.version}
 main: hugu1026.com.github.phantasycompassnavi.PhantasyCompassNavi
+commands:
+  destination:
+    description: "Set and Delete destination point."
