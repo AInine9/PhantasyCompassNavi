@@ -63,7 +63,9 @@ public class DestinationUtil {
         File destinationFile = getDestinationFile();
         FileConfiguration destinationData = getDestinationData();
 
-        destinationData.set(name + ".location", location);
+        destinationData.set(name + ".location.x", location.getX());
+        destinationData.set(name + ".location.y", location.getY());
+        destinationData.set(name + ".location.z", location.getZ());
         saveDestinationData(destinationFile, destinationData);
     }
 
@@ -78,7 +80,12 @@ public class DestinationUtil {
     public static Location getLocation(String name) {
         FileConfiguration destinationData = getDestinationData();
 
-        return (Location) destinationData.get(name + ".location");
+        int x, y, z;
+        x = destinationData.getInt(name + ".location.x");
+        y = destinationData.getInt(name + ".location.y");
+        z = destinationData.getInt(name + ".location.z");
+
+        return new Location(Bukkit.getWorld("world"), x, y, z);
     }
 
     public static ItemStack getItemStack(String name) {

@@ -1,6 +1,7 @@
 package hugu1026.com.github.phantasycompassnavi;
 
 import hugu1026.com.github.phantasycompassnavi.command.SetDestinationCommand;
+import hugu1026.com.github.phantasycompassnavi.listener.InventoryClick;
 import hugu1026.com.github.phantasycompassnavi.listener.PlayerInteract;
 import hugu1026.com.github.phantasycompassnavi.util.DestinationUtil;
 import org.bukkit.Bukkit;
@@ -26,5 +27,6 @@ public final class PhantasyCompassNavi extends JavaPlugin {
         PluginManager pm = Bukkit.getPluginManager();
 
         pm.registerEvents(new PlayerInteract(), this);
+        pm.registerEvents(new InventoryClick(), this);
     }
 }
