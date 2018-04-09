@@ -28,7 +28,9 @@ public class InventoryClick implements Listener {
         Player player = (Player) event.getWhoClicked();
         ItemStack clickedItem = event.getCurrentItem();
 
-        if (!(clickedItem.hasItemMeta() || clickedItem.getItemMeta().hasDisplayName())) return;
+        if (!clickedItem.hasItemMeta()) return;
+
+        if (!clickedItem.getItemMeta().hasDisplayName()) return;
 
         String name = clickedItem.getItemMeta().getDisplayName();
         name = ChatColor.stripColor(name);
@@ -41,6 +43,8 @@ public class InventoryClick implements Listener {
             Location playerLoc = player.getLocation();
 
             player.sendMessage(ChatColor.GOLD + "目的地地点までおよそ:" + ChatColor.RED + (int) destinationLoc.distance(playerLoc) + ChatColor.GOLD + "ブロック");
+            player.closeInventory();
+            event.setCancelled(true);
         }
 
         else if (inventory.getHolder() instanceof TeleportGui) {
@@ -51,8 +55,8 @@ public class InventoryClick implements Listener {
                 player.teleport(DestinationUtil.getLocation(finalName));
                 player.sendMessage(ChatColor.RED + finalName + ChatColor.GOLD + "にテレポートしました");
             }, 60);
+            player.closeInventory();
+            event.setCancelled(true);
         }
-        player.closeInventory();
-        event.setCancelled(true);
     }
 }
