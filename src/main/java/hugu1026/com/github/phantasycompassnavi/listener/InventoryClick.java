@@ -2,6 +2,7 @@ package hugu1026.com.github.phantasycompassnavi.listener;
 
 import hugu1026.com.github.phantasycompassnavi.PhantasyCompassNavi;
 import hugu1026.com.github.phantasycompassnavi.gui.CompassGui;
+import hugu1026.com.github.phantasycompassnavi.gui.Gui;
 import hugu1026.com.github.phantasycompassnavi.gui.TeleportGui;
 import hugu1026.com.github.phantasycompassnavi.util.DestinationUtil;
 import org.bukkit.Bukkit;
@@ -27,6 +28,8 @@ public class InventoryClick implements Listener {
 
         Player player = (Player) event.getWhoClicked();
         ItemStack clickedItem = event.getCurrentItem();
+
+        if (!(inventory.getHolder() instanceof Gui)) return;
 
         if (!clickedItem.hasItemMeta()) return;
 
